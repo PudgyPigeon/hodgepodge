@@ -19,9 +19,9 @@ defmodule Hodgepodge do
     Repo.all(Message)
   end
 
-  def create_message(text) do
+  def create_message(content) do
     %Message{}
-    |> Message.changeset(%{content: text})
+    |> Message.changeset(%{content: content})
     |> Repo.insert()
   end
 
