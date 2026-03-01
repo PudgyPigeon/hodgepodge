@@ -1,17 +1,4 @@
 defmodule Hodgepodge do
-  @moduledoc """
-  Documentation for `Hodgepodge`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Hodgepodge.hello()
-      :world
-
-  """
   alias Hodgepodge.Repo
   alias Hodgepodge.Message
 

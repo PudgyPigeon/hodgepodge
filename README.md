@@ -1,9 +1,10 @@
 Elixir stuff in hodgepodge dir for now - has its own README.md 
 
-May change as clojure or rust microservices are added.
+May change as clojure, haskell, or rust microservices are added.
 
 ## Tentative design
-Elixir will act as entry point API
+Haskell/Elixir will act as entry point API
+
 Elixir will also act as dashboard/UI - use GraphQL?
 - Simple API 
 - Communicates with Clojure via gRPC using HTTP/3 and UDP for speed

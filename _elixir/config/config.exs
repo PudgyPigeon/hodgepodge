@@ -1,3 +1,4 @@
+# Compile time(?)
 import Config
 
 config :hodgepodge, ecto_repos: [Hodgepodge.Repo]

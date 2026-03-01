@@ -5,7 +5,7 @@ let
   beamPackages = pkgs.beam.packagesWith pkgs.erlang_27;
   pname = "hodgepodge";
   version = "0.0.1";
-  src = ./hodgepodge/.;
+  src = ./elixir/.;
 in
 beamPackages.mixRelease {
   inherit pname version src;
