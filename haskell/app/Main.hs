@@ -1,19 +1,26 @@
-module Main where
+{-# LANGUAGE OverloadedStrings #-}
 
--- main :: IO ()
--- main = putStrLn "Hello, Haskell!"
+import Web.Scotty
+import Network.Wai.Middleware.RequestLogger (logStdoutDev)
+import Data.Text.Lazy.Encoding (decodeUtf8)
 
-add :: Integer -> Integer -> Integer
-add x y = x + y
+main :: IO () 
+main = scotty 3000 $ do
 
-increment :: Integer -> Integer
-increment = add 1
+    middleware logStdoutDev
+    
+    -- GET endpoint
+    get "/hello" $ do
+        text "Hello world!"
 
-divide :: Integer -> Integer -> Maybe Integer
-divide _ 0 = Nothing
-divide a b = Just(a `div` b)
+    -- Parametrized endpoint
+    get "/greet/:name" $ do
+        name <- param "name"
+        text $ "Hello, " <> name <> "!"
 
-main :: IO()
-main = case divide 10 1 of
-    Nothing -> putStrLn "Cannot divide by 0" 
-    Just result -> putStrLn ("Result: " ++ show result)
+    -- Post endpoint
+    post "/echo" $ do
+        rawBody <- body
+        let bodyText = decodeUtf8 rawBody
+        text $ "You posted: " <> bodyText
+    

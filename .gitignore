@@ -29,3 +29,6 @@ hodgepodge-*.tar
 .nix-db-sockets
 .nix-hex
 .nix-mix
+
+
+*dist-newstyle
